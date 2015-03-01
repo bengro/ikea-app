@@ -1,0 +1,15 @@
+<div layout="row" class="site-search" data-ng-controller="SearchCtrl">
+    <md-input-container flex class="site-search__input">
+        <label>IKEA product search</label>
+        <input ng-model="user.firstName" placeholder="Placeholder text">
+    </md-input-container>
+    <md-button class="md-primary site-search__button">Search</md-button>
+
+    <section>
+        <ng-include></ng-include>
+
+        <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+            <span>.md-whiteframe-z1</span>
+        </md-whiteframe>
+    </section>
+</div>
