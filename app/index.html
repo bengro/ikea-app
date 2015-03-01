@@ -12,6 +12,30 @@
         <!-- Is generated and moved during deploy task -->
         <link rel="stylesheet" href="style.css"/>
 
+        <!-- build:js /vendor.js -->
+        <script src="../bower_components/jquery/dist/jquery.js"></script>
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/angular-animate/angular-animate.js"></script>
+        <script src="../bower_components/angular-aria/angular-aria.js"></script>
+        <script src="../bower_components/angular-material/angular-material.js"></script>
+        <!-- endbuild -->
+
+        <!-- is generated during deploy, will contain all js -->
+        <script src="app.js"></script>
+        
+        <!-- import.io (introduces jquery dependency) -->
+        <script src="https://cdn.import.io/js/2.0.0/importio.js"></script>
+        <script type="text/javascript">
+            importio.init({
+                "auth": {
+                    "userGuid": "e6482869-3073-4778-b15e-0c02a01a1c55",
+                    "apiKey": "5UuWfd3Nj1nv7NHspvKZxqVr0jdXgSsSfaAUR04BI7Cue2QviL9w+WqQmKuV41D9McVdrLGuEAgj8KUIyL5R3g=="
+                },
+                "host": "import.io"
+            });
+        </script>
+        
     </head>
 
     <body ng-app="ikeaApp">
@@ -23,7 +47,7 @@
             </md-toolbar>
 
             <section>
-                <div layout="row" class="site-search">
+                <div layout="row" class="site-search" data-ng-controller="SearchCtrl">
                     <md-input-container flex class="site-search__input">
                         <label>IKEA product search</label>
                         <input ng-model="user.firstName" placeholder="Placeholder text">
@@ -36,18 +60,6 @@
                 </md-whiteframe>
             </section>
         </div>
-        
-
-        <!-- build:js /vendor.js -->
-        <script src="../bower_components/angular/angular.js"></script>
-        <script src="../bower_components/angular-route/angular-route.js"></script>
-        <script src="../bower_components/angular-animate/angular-animate.js"></script>
-        <script src="../bower_components/angular-aria/angular-aria.js"></script>
-        <script src="../bower_components/angular-material/angular-material.js"></script>
-        <!-- endbuild -->
-        
-        <!-- is generated during deploy, will contain all js -->
-        <script src="app.js"></script>
     
     </body>
 

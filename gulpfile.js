@@ -63,7 +63,7 @@ gulp.task('scripts', function () {
         'app/**/*.js',
         '!**/*.test.js'])
         .pipe(concat('app.js'))
-        .pipe(uglify())
+        //.pipe(uglify())
         .pipe(gulp.dest('dist/'));
 });
 
