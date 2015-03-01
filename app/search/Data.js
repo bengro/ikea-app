@@ -1,7 +1,7 @@
 (function () {
     "use strict";
     var app = angular.module("ikeaApp");
-    app.factory('ImportioApi', ['$q', function ($q) {
+    app.factory('Data', ['$q', function ($q) {
         var api = {};
         api.get = function (q) {
             var query = {
