@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head lang="en">
+        <meta charset="UTF-8">
+        
+        <title>import.io IKEA app</title>
+
+        <!-- Mobile support -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Is generated and moved during deploy task -->
+        <link rel="stylesheet" href="style.css"/>
+
+    </head>
+
+    <body ng-app="ikeaApp">
+        <header>
+            IKEA catalogue
+        </header>
+    
+        <section>
+            <md-input-container flex>
+                <label>IKEA product search</label>
+                <input ng-model="user.firstName" placeholder="Placeholder text">
+            </md-input-container>
+        </section>
+
+        <!-- build:js /vendor.js -->
+        <script src="../bower_components/angular/angular.js"></script>
+        <script src="../bower_components/angular-route/angular-route.js"></script>
+        <script src="../bower_components/angular-animate/angular-animate.js"></script>
+        <script src="../bower_components/angular-aria/angular-aria.js"></script>
+        <script src="../bower_components/angular-material/angular-material.js"></script>
+        <!-- endbuild -->
+        
+        <!-- is generated during deploy, will contain all js -->
+        <script src="app.js"></script>
+    
+    </body>
+
+</html>
