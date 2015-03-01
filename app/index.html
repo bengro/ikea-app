@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
-
     <head lang="en">
         <meta charset="UTF-8">
-        
         <title>import.io IKEA app</title>
 
         <!-- Mobile support -->
@@ -16,9 +14,6 @@
         <script src="../bower_components/jquery/dist/jquery.js"></script>
         <script src="../bower_components/angular/angular.js"></script>
         <script src="../bower_components/angular-route/angular-route.js"></script>
-        <script src="../bower_components/angular-animate/angular-animate.js"></script>
-        <script src="../bower_components/angular-aria/angular-aria.js"></script>
-        <script src="../bower_components/angular-material/angular-material.js"></script>
         <!-- endbuild -->
 
         <!-- is generated during deploy, will contain all js -->
@@ -35,11 +30,9 @@
                 "host": "import.io"
             });
         </script>
-        
     </head>
     
     <body ng-app="ikeaApp">
-    
         <noscript>
             <div>
                 <h1>Sorry...</h1>
@@ -47,12 +40,12 @@
                 <p>I could use isomorphic javascript to support the few poor users and search engines that do not like JS.</p>
             </div>
         </noscript>
-        
-        <div layout="column" layout-fill>
-            <div data-ng-include="'header/header.html'"></div>
-            <div data-ng-include="'search/search.html'"></div>
+
+        <div class="wrap" data-bgAnimate="">
+            <header class="header" data-ng-include="'header/header.html'"></header>
+            <div class="content" data-ng-include="'search/search.html'"></div>
+            <footer class="footer" data-ng-include="'footer/footer.html'"></footer>
         </div>
-    
     </body>
 
 </html>

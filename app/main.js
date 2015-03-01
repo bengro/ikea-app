@@ -1,4 +1,4 @@
 (function () {
     "use strict";
-    angular.module("ikeaApp", ['ngRoute', 'ngMaterial']);
+    angular.module("ikeaApp", ['ngRoute']);
 }());
