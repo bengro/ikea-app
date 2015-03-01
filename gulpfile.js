@@ -25,7 +25,7 @@ gulp.task('watch', function () {
     gulp.watch('app/*.less', ['less']);
 
     // Watch .less files
-    gulp.watch('app/*.html', ['clean-dist', 'usemin']);
+    gulp.watch('app/**/*.html', ['clean-dist', 'html', 'usemin']);
 });
 
 
@@ -56,7 +56,7 @@ gulp.task('clean-dist', function() {
         .pipe(clean());
 });
 
-gulp.task('deploy', ['clean-dist', 'usemin', 'scripts', 'less']);
+gulp.task('deploy', ['clean-dist', 'html', 'usemin', 'scripts', 'less']);
 
 gulp.task('scripts', function () {
     return gulp.src([
@@ -71,8 +71,14 @@ gulp.task('usemin', function () {
     return gulp.src('app/index.html')
         .pipe(usemin({
             js: [uglify(), rev()],
-            html: [htmlmin({collapseWhitespace: true})]
+            //html: [htmlmin({collapseWhitespace: true})]
         }))
+        .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('html', function () {
+    return gulp.src(['app/**/*.html', '!app/index.html'])
+        //.pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dist/'));
 });
 
