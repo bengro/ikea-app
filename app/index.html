@@ -15,16 +15,28 @@
     </head>
 
     <body ng-app="ikeaApp">
-        <header>
-            IKEA catalogue
-        </header>
-    
-        <section>
-            <md-input-container flex>
-                <label>IKEA product search</label>
-                <input ng-model="user.firstName" placeholder="Placeholder text">
-            </md-input-container>
-        </section>
+        <div layout="column" layout-fill>
+            <md-toolbar class="">
+                <h2 class="md-toolbar-tools">
+                    <span>IKEA catalogue</span>
+                </h2>
+            </md-toolbar>
+
+            <section>
+                <div layout="row" class="site-search">
+                    <md-input-container flex class="site-search__input">
+                        <label>IKEA product search</label>
+                        <input ng-model="user.firstName" placeholder="Placeholder text">
+                    </md-input-container>
+                    <md-button class="md-primary site-search__button">Search</md-button>
+                </div>
+                
+                <md-whiteframe class="md-whiteframe-z1" layout layout-align="center center">
+                    <span>.md-whiteframe-z1</span>
+                </md-whiteframe>
+            </section>
+        </div>
+        
 
         <!-- build:js /vendor.js -->
         <script src="../bower_components/angular/angular.js"></script>

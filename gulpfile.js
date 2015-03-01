@@ -14,13 +14,13 @@ var usemin = require('gulp-usemin');
 var clean = require('gulp-clean');
 
 /* WATCHES */
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     // Watch .js files
     gulp.watch([
         'app/**/*.js',
         '!**/*.test.js'
     ], ['scripts']);
-    
+
     // Watch .less files
     gulp.watch('app/*.less', ['less']);
 
@@ -30,7 +30,7 @@ gulp.task('watch', function() {
 
 
 /* RUN */
-gulp.task('webserver', function() {
+gulp.task('webserver', function () {
     gulp.src('dist')
         .pipe(webserver({
             livereload: true,
@@ -41,7 +41,7 @@ gulp.task('webserver', function() {
 
 
 /* TEST */
-gulp.task('test', function (done) {
+gulp.task('test', function () {
     gulp.src('app/**/*.test.js')
         .pipe(karma({
             configFile: 'karma.conf.js',
@@ -58,11 +58,10 @@ gulp.task('clean-dist', function() {
 
 gulp.task('deploy', ['clean-dist', 'usemin', 'scripts', 'less']);
 
-gulp.task('scripts', function() {
+gulp.task('scripts', function () {
     return gulp.src([
-            'app/**/*.js', 
-            '!**/*.test.js'
-        ])
+        'app/**/*.js',
+        '!**/*.test.js'])
         .pipe(concat('app.js'))
         .pipe(uglify())
         .pipe(gulp.dest('dist/'));
