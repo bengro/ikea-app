@@ -2,7 +2,7 @@
     <form class="navbar-form" role="search">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search IKEA products" data-ng-keyup="validate()" data-ng-model="searchInput">
-            <button type="submit" class="btn btn-default form-control" data-ng-click="validate()" data-ng-disable="searchInput === ''">
+            <button type="submit" class="btn btn-default form-control" data-ng-click="validate()" data-ng-disabled="!searchInput">
                 <i class="glyphicon glyphicon-search"></i>
                 Search
             </button>
@@ -18,17 +18,13 @@
 
 <!-- I would rather use ul>li for more semantic meaning and better screen-reader support -->
 <section class="results">
-    <div class="panel panel-default">
-        <div class="container-fluid results__list">
-            <div class="row results--item">
-                <div class="col-sm-3 vcenter">
-                    <img src="artifacts/example.JPG" width="100" alt="$..."/>
-                </div>
-                <div class="col-sm-3 vcenter"><span>2</span></div>
-                <div class="col-sm-3 vcenter"><span>3</span></div>
-                <div class="col-sm-3 vcenter"><span>4</span></div>
-            </div>
-            
-        </div>
+    <div class="panel panel-default results-panel">
+        <ul class="results__list">
+            <li class="tile" data-ng-repeat="obj in [1,2,3,4,5,6,7]">
+                <div class="col col-img"><img src="artifacts/example.JPG" width="100" alt="$..."/></div>
+                <div class="col col-title"><p>Title</p></div>
+                <div class="col col-price"><p>Price</p></div>
+            </li>
+        </ul>
     </div>
 </section>
