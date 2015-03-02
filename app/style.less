@@ -1,5 +1,41 @@
 @import '../bower_components/bootstrap/less/bootstrap.less';
 
+/*
+* Change look and feel of app.
+*/
+@bright: #f5f5f5;
+@blue: #2196F3;
+@dark: black;
+@icon-font-path: 'artifacts/';
+
+
+/**
+* Overwrites
+*/
+.navbar-form {
+  border-top:0px;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+/**
+* Mixins
+*/
+.transition {
+  transition: all .2s ease-in-out;
+}
+
+.blueBackground {
+  background: rgba(33,150,243,1);
+  background: -moz-linear-gradient(left, rgba(33,150,243,1) 50%, rgba(33,150,243,1) 66%, rgba(33,150,243,0.93) 81%, rgba(33,150,243,0.85) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(50%, rgba(33,150,243,1)), color-stop(66%, rgba(33,150,243,1)), color-stop(81%, rgba(33,150,243,0.93)), color-stop(100%, rgba(33,150,243,0.85)));
+  background: -webkit-linear-gradient(left, rgba(33,150,243,1) 50%, rgba(33,150,243,1) 66%, rgba(33,150,243,0.93) 81%, rgba(33,150,243,0.85) 100%);
+  background: -o-linear-gradient(left, rgba(33,150,243,1) 50%, rgba(33,150,243,1) 66%, rgba(33,150,243,0.93) 81%, rgba(33,150,243,0.85) 100%);
+  background: -ms-linear-gradient(left, rgba(33,150,243,1) 50%, rgba(33,150,243,1) 66%, rgba(33,150,243,0.93) 81%, rgba(33,150,243,0.85) 100%);
+  background: linear-gradient(to right, rgba(33,150,243,1) 50%, rgba(33,150,243,1) 66%, rgba(33,150,243,0.93) 81%, rgba(33,150,243,0.85) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2196f3', endColorstr='#2196f3', GradientType=1 );
+}
+
 noscript {
   div {
     background: red;
@@ -11,19 +47,24 @@ noscript {
   }
 }
 
-.transition {
-  transition: all .5s ease-in-out;
-}
-
 body {
-  background-color: #f5f5f5;
+  background-color: @bright;
   
   .wrap {
     width: 100%;
-    margin-top: 240px;
+    
+    /* mobile */
+    @media only screen and (max-height: 500px) {
+      margin-top: 0px;
+    }
+    /* desktop */
+    @media only screen and (min-height: 700px) {
+      margin-top: 200px;
+    }
     .transition;
     &.wrap--search-mode{
       margin-top: 0px;
+      top: 0px;
       .content__search {
         padding: 10px;
       }
@@ -37,7 +78,7 @@ body {
       }
     }
     .header {
-      background-color: #f5f5f5;
+      background-color: @bright;
       padding: 20px;
       h1 {
         margin: 0px;
@@ -52,10 +93,22 @@ body {
 
     .content {
       .content__search {
-        background: #2196F3;
+        .blueBackground;
         clear: both;
         padding: 20px 0;
         overflow: auto;
+        form {
+          position: relative;
+          .menu {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+          }
+        }
+      }
+      .loader {
+        height:0px;
+        background: @dark;
       }
       .results {
         clear: both;
@@ -68,7 +121,7 @@ body {
       clear: both;
       width: 100%;
       height: 60px;
-      background-color: #f5f5f5;
+      background-color: @bright;
       p {
         line-height: 2;
       }

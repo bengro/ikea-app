@@ -2,8 +2,14 @@
     "use strict";
     var app = angular.module("ikeaApp");
     app.factory('Data', ['$q', function ($q) {
-        var api = {};
-        api.get = function (q) {
+        var data = {},
+            searches = [];
+
+        data.addSearch = function (searchInput) {
+            searches.push(searchInput);
+        };
+
+        data.get = function (q) {
             var query = {
                 "input": {
                     "query": q
@@ -19,6 +25,7 @@
             });
             return deferred.promise;
         };
-        return api;
+
+        return data;
     }]);
 }());

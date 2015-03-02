@@ -26,7 +26,10 @@ gulp.task('watch', function () {
     gulp.watch('app/*.less', ['less']);
 
     // Watch .less files
-    gulp.watch('app/**/*.html', ['clean-dist', 'html', 'usemin']);
+    gulp.watch('app/**/*.html', ['html', 'usemin']);
+
+    // Watch artifacts dir
+    gulp.watch('app/artifacts', ['artifacts']);
 });
 
 
@@ -53,7 +56,7 @@ gulp.task('test', function () {
 
 /* DIST */
 gulp.task('clean-dist', function() {
-    return gulp.src('dist/vendor-*.js', {read: false})
+    return gulp.src('dist/', {read: false})
         .pipe(clean());
 });
 
@@ -93,5 +96,9 @@ gulp.task('less', function () {
         .pipe(gulp.dest('dist/'));
 });
 
+gulp.task('artifacts', function () {
+    return gulp.src(['bower_components/bootstrap/dist/fonts/*', 'app/artifacts/*'])
+        .pipe(gulp.dest('dist/artifacts'));
+});
 
-gulp.task('default', ['deploy', 'run', 'watch']);
+gulp.task('default', ['deploy', 'watch', 'webserver']);

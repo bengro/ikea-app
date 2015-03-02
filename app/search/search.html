@@ -1,32 +1,34 @@
 <div class="content__search" data-ng-controller="SearchCtrl">
-    <form class="navbar-form navbar-left" role="search">
+    <form class="navbar-form" role="search">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search IKEA products" data-ng-keyup="validate()" data-ng-model="searchInput">
+            <button type="submit" class="btn btn-default form-control" data-ng-click="validate()" data-ng-disable="searchInput === ''">
+                <i class="glyphicon glyphicon-search"></i>
+                Search
+            </button>
+            <button class="btn btn-default form-control" data-ng-click="close()" ng-show="searchInput">
+                Clear
+                <i class="glyphicon glyphicon-remove-circle btn-icon"></i>
+            </button>
         </div>
-        <button type="submit" class="btn btn-default" data-ng-click="search()" data-ng-disable="searchInput === ''">
-            <i class="glyphicon glyphicon-search"></i>
-            Search
-        </button>
     </form>
 </div>
 
+<div class="loader"></div>
+
+<!-- I would rather use ul>li for more semantic meaning and better screen-reader support -->
 <section class="results">
     <div class="panel panel-default">
-        <div class="panel-body">
-            <ul class="results__list">
-                <li class="results--item">
-                    Test
-                </li>
-                <li class="results--item">
-                    Test
-                </li>
-                <li class="results--item">
-                    Test
-                </li>
-                <li class="results--item">
-                    Test
-                </li>
-            </ul>
+        <div class="container-fluid results__list">
+            <div class="row results--item">
+                <div class="col-sm-3 vcenter">
+                    <img src="artifacts/example.JPG" width="100" alt="$..."/>
+                </div>
+                <div class="col-sm-3 vcenter"><span>2</span></div>
+                <div class="col-sm-3 vcenter"><span>3</span></div>
+                <div class="col-sm-3 vcenter"><span>4</span></div>
+            </div>
+            
         </div>
     </div>
 </section>
