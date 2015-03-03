@@ -21,9 +21,13 @@
     <div class="panel panel-default results-panel">
         <ul class="results__list">
             <li class="tile" data-ng-repeat="obj in [1,2,3,4,5,6,7]">
-                <div class="col col-img"><img src="artifacts/example.JPG" width="100" alt="$..."/></div>
-                <div class="col col-title"><p>Title</p></div>
-                <div class="col col-price"><p>Price</p></div>
+                <div class="results--row row-1">
+                    <img src="artifacts/example.JPG" width="100" alt="$..."/>
+                    <p>Price $</p>
+                </div>
+                <div class="results--row"><p>Title</p></div>
+                <div class="results--row"><p>Desc</p></div>
+                <div class="results--row"><p><span class="label label-default">category..</span></p></div>
             </li>
         </ul>
     </div>

@@ -75,6 +75,7 @@ body {
         .transition;
         position: absolute;
         bottom: 0;
+        padding: 0px 20px;
       }
       .content .results {
         display: block;
@@ -86,10 +87,15 @@ body {
       h1 {
         margin: 0px;
         padding: 0px;
-        span {
+        span.header__title--title {
+          font-weight: bold;
+          font-style: italic;
+        }
+        span.header__title--slogan {
           margin-top: 5px;
           display: block;
-          font-size: 50%;
+          font-size: 45%;
+          font-weight: normal;
         }
       }
     }
@@ -128,6 +134,15 @@ body {
             background-color: @light;
             float: left;
             margin: 15px;
+            padding: 10px;
+            .results--row {
+              margin: 5px 0;
+            }
+            .row-1 {
+              p, img {
+                display: inline-block;
+              }
+            }
             @media only screen and (max-width: 480px) {
               display: block;
               float: none;
