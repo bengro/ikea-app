@@ -1,41 +1,52 @@
 (function () {
     "use strict";
     var app = angular.module('ikeaApp');
-    app.controller('SearchCtrl', ['$scope', 'Data', 'StateManager', function ($scope, Data, StateManager) {
-        var init = function () {
-            // holds the input value
-            $scope.searchInput = null;
-        };
+    app.controller('SearchCtrl', ['$scope', 'Data', 'StateManager', '$location', function ($scope, Data, StateManager, $location) {
 
         /**
-         * Triggering a search request 
+         * Init method for this controller, here values are initialised.
          */
-        var search = function () {
+        function init() {
+            var searchParam = $location.search();
+            $scope.searchInput = (searchParam.q !== undefined) ? searchParam.q : null;
+        }
+        init();
+
+        /**
+         * Triggering a search request, private method.
+         */
+        function ajaxCall() {
             var promise = Data.get($scope.searchInput);
             promise.then(function (data) {
                 console.log(data);
             });
-        };
+        }
 
         /**
          * On keyup event on input field 
          */
         $scope.validate = function () {
             if ($scope.searchInput === '') {
-                StateManager.setSearchState(false);
-            } else {
-                Data.addSearch($scope.searchInput);
-                StateManager.setSearchState(true);
-                search($scope.searchInput);
+                $location.path('/').search({}).replace();
             }
         };
 
-        $scope.close = function () {
-            StateManager.setSearchState(false);
-            $scope.searchInput = null;
-            init();
+        /**
+         * Invoked when hit search button
+         */
+        $scope.search = function () {
+            $location.replace().search('q', $scope.searchInput);
+            Data.addSearch($scope.searchInput);
+            ajaxCall();
         };
 
-        init();
+        /**
+         * Invoked when hitting the clear button
+         */
+        $scope.close = function () {
+            $scope.searchInput = null;
+            $location.path('/').search({}).replace();
+            init();
+        };
     }]);
 }());

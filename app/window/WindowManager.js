@@ -1,7 +1,7 @@
 (function () {
     "use strict";
     var app = angular.module('ikeaApp');
-    app.directive('windowManager', ['StateManager', '$window', function (StateManager, $window) {
+    app.directive('windowManager', ['StateManager', function (StateManager) {
         return {
             restrict: 'A',
             scope: {},

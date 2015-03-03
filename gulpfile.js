@@ -60,7 +60,7 @@ gulp.task('clean-dist', function() {
         .pipe(clean());
 });
 
-gulp.task('deploy', ['clean-dist', 'html', 'usemin', 'scripts', 'less']);
+gulp.task('deploy', ['clean-dist', 'html', 'usemin', 'scripts', 'less', 'artifacts']);
 
 gulp.task('scripts', function () {
     return gulp.src([
