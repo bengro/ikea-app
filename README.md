@@ -7,19 +7,29 @@ ikea catalogue app fueled with data collected by import.io. My preferred Angular
   3.  Provide a web app to search and browse IKEA products.
 
 ### Issues
-  1.  When crawling the data, title and description were omitted by the crawler. When training the pages it worked fine.
-  2.  After collecting the data, I needed to define "inputs" to make the API searchable. No documentation, perhaps does not work for crawled data sets?
-  3.  Query object badly documented - for a long time I mistakenly assumed that the column names correspond to the key.
-  4.  There is a jQuery dependency for JS library.
+  1.  When crawling the data, title and description were omitted by the crawler. (When training the pages it worked fine.)
+  2.  After collecting the data, I needed to define "inputs" to make the API searchable. Couldn't find a way to do it.
 
 ### Changed plan
-  1.  Scrap **all** products from IKEA, steal the title from the alt description.
+  1.  Scrap **500KB worth of products** from IKEA, steal the title from the alt description.
   2.  Download data as JSON - ship them with web app.
-  3).  Provide a web app to search and browse IKEA products.
+  3.  Provide a web app to search and browse IKEA products.
 
 
 ## Build
 
+### Get it building and running
+```npm install```
+```gulp deploy```
+```gulp webserver```
+
+Then hit for example:
+  * http://localhost:8000/index.html#/?q=bathroom
+  * http://localhost:8000/index.html#/?q=stuva
+  * http://localhost:8000/index.html#/?q=398.736.85
+  * http://localhost:8000/index.html#/?q=table
+    
+### All build options
 **Install**:
 npm install
 
@@ -53,9 +63,11 @@ gulp watch
 **Next tasks**:
   * Proper route management (back, forward button, change title on state change)
   * Auto-complete for search input
+  * Make results page more interesting with zoom option for images.
   * Add end-to-end tests
   * Virtualis results to render thousands of them fluidly
   * e2e tests with protactor
+  * Introduce third stage: production, which is where we can highly optimise / minimise the files.
   
 **General code quality**:
   * component-based application structure
