@@ -68,6 +68,7 @@ gulp.task('deploy', ['clean-dist', 'usemin', 'scripts', 'less', 'artifacts', 'ht
 
 gulp.task('scripts', function () {
     return gulp.src([
+        'app/main.js',
         'app/**/*.js',
         '!**/*.test.js'])
         .pipe(concat('app.js'))
@@ -101,7 +102,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('artifacts', function () {
-    return gulp.src(['bower_components/bootstrap/dist/fonts/*', 'app/artifacts/*', 'app/ikea-products.json'])
+    return gulp.src(['bower_components/bootstrap/dist/fonts/*', 'app/artifacts/*'])
         .pipe(gulp.dest('dist/artifacts'));
 });
 
