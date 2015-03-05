@@ -8,11 +8,13 @@ ikea catalogue app fueled with data collected by import.io. My preferred Angular
 
 ### Issues
   1.  When crawling the data, title and description were omitted by the crawler. (When training the pages it worked fine.)
-  2.  After collecting the data, I needed to define "inputs" to make the API searchable. Couldn't find a way to do it.
-
+  2.  After collecting the data, I wanted to make the data set available to access via REST.
+      I did not manage to do so, as for my crawled data set I could not find a way to define "inputs".
+      
 ### Changed plan
   1.  Scrap **500KB worth of products** from IKEA, steal the title from the alt description.
   2.  Download data as JSON - ship them with web app.
+  3.  Write an abstract Data layer such that we could replace the static json file, with a rest call easily.
   3.  Provide a web app to search and browse IKEA products.
 
 
