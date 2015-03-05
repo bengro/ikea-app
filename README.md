@@ -64,26 +64,24 @@ gulp watch
   * Basic responsiveness (can be improved substantially)
   * CSS transitions, using an AngularJS directive
   * noscript warning
-
-**Next tasks**:
-  * Proper route management (back, forward button, change title on state change)
-  * Auto-complete for search input
-  * Make results page more interesting with zoom option for images.
-  * Add end-to-end tests
-  * Improve responsiveness, make it prettier.
-  * Virtualise results to render thousands of them fluidly
-  * e2e tests with protactor
-  * Introduce third stage: production, which is where we can highly optimise / minimise the files.
-  
-**General code quality**:
+    
+**General code remarks**:
   * **component-based application structure**: files are grouped together on a feature-basis. 
     Personally, I like having the test files inside those directories as well. Makes it obvious if there are missing test files.
   * **app directory**: contains all source code including comments. 
   * **dist directory**: contains no comments and is minified HTML, CSS, JS ready for production.
-  * **BEM**: Methodology for modula CSS (I have tried to use it for the first time, needs some revising)
+  * **BEM**: Methodology for modular CSS (I have tried to use it for the first time, needs some revising)
   * **JSLint**: Forces developers to write similar JS code and prevents typical JS traps.
   
-**Dependencies**:
+**Dependencies/Tools**:
   * Front-end: AngularJS 1.3, ngRoute, LESS, bootstrap
   * Testing: Karma, Jasmine, angular-mocks
   * Build tools: npm, gulp, gulp plugins
+  
+**Next tasks**:
+  * Test in older browsers, particularly IE10.
+  * Route management (back, forward button, change title on state change)
+  * Improve responsiveness, make it prettier.
+  * Make results page more interesting with zoom option for images.
+  * Add end-to-end tests (Protractor)
+  * Improve performance on results page when rendering thousands of products
