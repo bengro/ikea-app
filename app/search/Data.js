@@ -18,11 +18,11 @@
         data.load = function () {
             var deferred = $q.defer();
 
-            $http.get('/ikea-products.json').
+            $http.get('artifacts/ikea-products.json').
                 success(function (data) {
-                    deferred.when(data);
+                    deferred.resolve(data);
                 }).error(function (data, status, headers, config) {
-                    // throw error notification
+                    deferred.reject(data);
                 });
 
             return deferred.promise;
@@ -31,16 +31,30 @@
         /**
          * Filters the ikea products by some filter criteria.
          * @param ikea products json
-         * @param filter criteria
+         * @param filter criteria {column: value}
          */
         data.search = function (filter) {
+            var deferred = $q.defer();
+
             if (!products) {
                 products = data.load();
             }
 
-            products.then(function (data) {
+            products.then(function (allProducts) {
                 // iterate over data and apply filter
+                var i, obj, results = [];
+                for (i = 0; i < allProducts.length; i += 1) {
+                    obj = data[i];
+                    if (obj[filter.col] !== undefined) {
+                        if (obj[filter.col].indexOf(filter.value) > -1) {
+                            results.push(obj);
+                        }
+                    }
+                }
+                deferred.resolve(results);
             });
+
+            return deferred.promise;
         };
 
         return data;

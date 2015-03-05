@@ -3,6 +3,8 @@
     var app = angular.module('ikeaApp');
     app.controller('SearchCtrl', ['$scope', 'Data', '$location', function ($scope, Data, $location) {
 
+        $scope.results = null;
+
         /**
          * Init method for this controller, here values are initialised.
          */
@@ -18,7 +20,7 @@
         function ajaxCall() {
             var result = Data.search($scope.searchInput);
             result.then(function (data) {
-                console.log(data);
+                $scope.results = data;
             });
         }
 
@@ -36,7 +38,7 @@
          */
         $scope.search = function () {
             $location.replace().search('q', $scope.searchInput);
-            ajaxCall();
+            ajaxCall(); // not really, as we're using a static json for now.
         };
 
         /**

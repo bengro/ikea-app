@@ -1,6 +1,6 @@
 /* GULP DEPENDENCIES */
 var gulp = require('gulp');
-var karma = require('gulp-karma');
+var karma = require('karma').server;
 var connect = require('gulp-connect');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -35,7 +35,7 @@ gulp.task('watch', function () {
 
 /* RUN */
 gulp.task('webserver', function () {
-    gulp.src('dist')
+    return gulp.src('dist')
         .pipe(webserver({
             livereload: true,
             directoryListing: true,
@@ -45,29 +45,26 @@ gulp.task('webserver', function () {
 
 
 /* TEST */
-gulp.task('test', function () {
-    return gulp.src('app/**/*.test.js')
-        .pipe(karma({
-            configFile: 'karma.conf.js',
-            action: 'watch'
-        }));
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+    }, done);
 });
-gulp.task('test-once', function () {
-    return gulp.src('app/**/*.test.js')
-        .pipe(karma({
-            configFile: 'karma.conf.js',
-            action: 'run'
-        }));
+gulp.task('test-once', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done);
 });
 
 
 /* DIST */
 gulp.task('clean-dist', function() {
-    return gulp.src('dist/', {read: false})
+    return gulp.src('dist/*', {read: false})
         .pipe(clean());
 });
 
-gulp.task('deploy', ['clean-dist', 'html', 'usemin', 'scripts', 'less', 'artifacts']);
+gulp.task('deploy', ['clean-dist', 'usemin', 'scripts', 'less', 'artifacts', 'html']);
 
 gulp.task('scripts', function () {
     return gulp.src([
@@ -82,14 +79,14 @@ gulp.task('usemin', function () {
     return gulp.src('app/index.html')
         .pipe(usemin({
             js: [uglify(), rev()],
-            //html: [htmlmin({collapseWhitespace: true})]
+            html: [htmlmin({collapseWhitespace: false, removeComments: true})]
         }))
         .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('html', function () {
     return gulp.src(['app/**/*.html', '!app/index.html'])
-        //.pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: false, removeComments: true}))
         .pipe(gulp.dest('dist/'));
 });
 
@@ -104,7 +101,7 @@ gulp.task('less', function () {
 });
 
 gulp.task('artifacts', function () {
-    return gulp.src(['bower_components/bootstrap/dist/fonts/*', 'app/artifacts/*'])
+    return gulp.src(['bower_components/bootstrap/dist/fonts/*', 'app/artifacts/*', 'app/ikea-products.json'])
         .pipe(gulp.dest('dist/artifacts'));
 });
 
