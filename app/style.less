@@ -137,7 +137,7 @@ body {
           .tile {
             list-style-type: none;
             width: 250px;
-            height: 250px;
+            height: 380px;
             background-color: @light;
             float: left;
             margin: 15px;
@@ -148,9 +148,11 @@ body {
             .results--row {
               margin: 5px 0;
               .info-price {
-                font-size: 150%;
-                text-align: center;
-                width: 90px;
+                font-size: 110%;
+                padding-left: 10px;
+                span {
+                  font-size: 80%
+                }
               }
               &.info-id p {
                 font-size: 80%;
@@ -166,7 +168,7 @@ body {
               }
             }
             .row-1 {
-              p, img {
+              div.info-price, img {
                 display: inline-block;
               }
             }

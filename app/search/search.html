@@ -7,7 +7,7 @@
                     <i class="glyphicon glyphicon-search"></i>
                     Search
                 </button>
-                <button class="btn btn-default form-control" data-ng-click="close()" ng-show="searchInput">
+                <button class="btn btn-default form-control" data-ng-click="close()" data-ng-show="searchInput">
                     Clear
                     <i class="glyphicon glyphicon-remove-circle btn-icon"></i>
                 </button>
@@ -25,12 +25,15 @@
             <ul class="results__list" data-ng-if="results && results.length > 0">
                 <li class="tile" data-ng-repeat="product in results">
                     <div class="results--row row-1">
-                        <img src="{{ product.img }}" class="info-img" alt="$..."/>
-                        <p class="info-price">{{product.price}}</p>
+                        <img src="{{ product.img }}" class="info-img" alt="{{ product.desc }}"/>
+                        <div class="info-price">
+                            <p>{{ product.price }}</p>
+                            <p class="label {{ product.color }}">{{ product.category }}</p>
+                        </div>
                     </div>
                     <div class="results--row info-title"><p>{{ product.title }}</p></div>
                     <div class="results--row info-id"><p>{{ product.product_id }}</p></div>
-                    <div class="results--row info-category"><p><span class="label {{ product.color }}">{{ product.category }}</span></p></div>
+                    <div class="results--row"><p>{{ product.desc }}</p></div>
                 </li>
             </ul>
         </div>
