@@ -5,22 +5,20 @@
         var manager = {};
 
         /**
-         * The app knows to states: true: we are in search state, false: we are in result state*
+         * The app knows to states: 
+         *     true: we are in search state (no results shown)
+         *     false: we are in result state
          * @type {boolean}
          */
         manager.searchState = false;
 
         /**
          * Here we listen to URL changes.
-         * This is where later, I should manage routes so that users can use their back buttons.
+         * Later to enable browser history, here we would have to make changes.
          */
         $rootScope.$on('$locationChangeSuccess', function () {
             var searchParam = $location.search();
-            if (searchParam.q !== undefined) {
-                manager.searchState = true;
-            } else {
-                manager.searchState = false;
-            }
+            manager.searchState = searchParam.q !== undefined;
         });
 
         return manager;

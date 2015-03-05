@@ -1,7 +1,7 @@
 (function () {
     "use strict";
     var app = angular.module('ikeaApp');
-    app.controller('SearchCtrl', ['$scope', 'Data', 'StateManager', '$location', function ($scope, Data, StateManager, $location) {
+    app.controller('SearchCtrl', ['$scope', 'Data', '$location', function ($scope, Data, $location) {
 
         /**
          * Init method for this controller, here values are initialised.
@@ -16,8 +16,8 @@
          * Triggering a search request, private method.
          */
         function ajaxCall() {
-            var promise = Data.get($scope.searchInput);
-            promise.then(function (data) {
+            var result = Data.search($scope.searchInput);
+            result.then(function (data) {
                 console.log(data);
             });
         }
@@ -36,7 +36,6 @@
          */
         $scope.search = function () {
             $location.replace().search('q', $scope.searchInput);
-            Data.addSearch($scope.searchInput);
             ajaxCall();
         };
 
@@ -48,5 +47,6 @@
             $location.path('/').search({}).replace();
             init();
         };
+
     }]);
 }());
