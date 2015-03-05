@@ -58,8 +58,9 @@ gulp watch
 
 **Features implemented**:
   * Hot linking (e.g. http://localhost:8000/index.html#/?q=lamp)
-  * Data abstraction layer
-  * Basic responsiveneess
+  * Data layer abstraction using a Angular factory
+  * Basic responsiveness (can be improved substantially)
+  * CSS transitions, using an Angular directive
   * noscript warning
 
 **Next tasks**:
@@ -77,7 +78,7 @@ gulp watch
   * dist directory: minified HTML, CSS, JS ready for production.
   * Tests run again final concatenated JS script.
   * BEM for CSS (first time, needs some revising)
-  * JSLint
+  * JSLint for all app code.
   
 **Dependencies**:
   * Front-end: AngularJS 1.3, ngRoute, LESS, bootstrap
