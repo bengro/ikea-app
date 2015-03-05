@@ -14,7 +14,7 @@ ikea catalogue app fueled with data collected by import.io.
       
 ### Changed plan
   1.  Scrap **500KB worth of products** from IKEA, steal the title from the alt description.
-  2.  Download data as JSON - ship them with web app.
+  2.  Download data as JSON - ship it with web app.
   3.  Write an abstract Data layer such that we could replace the static json file, with a rest call easily.
   3.  Provide a web app to search and browse IKEA products.
 
@@ -79,7 +79,7 @@ gulp watch
   * Build tools: npm, gulp, gulp plugins
   
 **Next tasks**:
-  * Test in older browsers, particularly IE10.
+  * Test older browsers, particularly IE10.
   * Route management (back, forward button, change title on state change)
   * Improve responsiveness, make it prettier.
   * Make results page more interesting with zoom option for images.
