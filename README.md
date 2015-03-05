@@ -45,7 +45,7 @@ gulp watch
 ## Details
 
 **Features implemented**:
-  * Hot linking
+  * Hot linking (e.g. http://localhost:8000/index.html#/?q=lamp)
   * Data abstraction layer
   * Basic responsiveneess
   * noscript warning

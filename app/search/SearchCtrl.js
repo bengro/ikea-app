@@ -10,6 +10,7 @@
             var searchParam = $location.search();
             $scope.searchInput = (searchParam.q !== undefined) ? searchParam.q : null;
             $scope.results = [];
+            if ($scope.searchInput !== null) ajaxCall();
         }
         init();
 
@@ -19,8 +20,6 @@
         function ajaxCall() {
             var result = Data.search($scope.searchInput);
             result.then(function (data) {
-                console.log('results set to' + data);
-                console.log(data);
                 $scope.results = data;
             });
         }

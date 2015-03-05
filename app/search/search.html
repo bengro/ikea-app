@@ -11,6 +11,7 @@
                     Clear
                     <i class="glyphicon glyphicon-remove-circle btn-icon"></i>
                 </button>
+                <span ng-show="results.length > 0">{{ results.length }} products found.</span>
             </div>
         </form>
     </div>
@@ -27,9 +28,9 @@
                         <img src="{{product.img}}" width="100" alt="$..."/>
                         <p>{{product.price}}</p>
                     </div>
-                    <div class="results--row"><p>Title</p></div>
-                    <div class="results--row"><p>Desc</p></div>
-                    <div class="results--row"><p><span class="label label-default">category..</span></p></div>
+                    <div class="results--row"><p>{{ product.title }}</p></div>
+                    <div class="results--row"><p>{{ product.product_id }}</p></div>
+                    <div class="results--row"><p><span class="label label-default">{{ product.category }}</span></p></div>
                 </li>
             </ul>
         </div>

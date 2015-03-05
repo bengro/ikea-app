@@ -34,7 +34,18 @@
          * @param filter criteria as a string
          */
         data.search = function (keyword) {
-            var deferred = $q.defer();
+            var deferred = $q.defer(),
+                extract = function (item) {
+                    var newItem = {};
+                    newItem.price = item.price[0];
+                    newItem.img = item.img[0];
+                    newItem.category = item.category[0];
+                    newItem.labels = item.label[0];
+                    newItem.desc = item.long_desc[0];
+                    newItem.product_id = item.product_id[0];
+                    newItem.title = item['img/_title'][0].split(" ")[0];
+                    return newItem;
+                };
 
             if (!products) {
                 products = data.load();
@@ -49,11 +60,11 @@
                 for (i = 0; i < allProducts.data.length; i += 1) {
                     obj = allProducts.data[i];
                     if (obj.product_id[0].indexOf(keyword) > -1) {
-                        results.push(obj);
+                        results.push(extract(obj));
                     } else if (obj['img/_title'][0].indexOf(keyword) > -1) {
-                        results.push(obj);
+                        results.push(extract(obj));
                     } else if (obj.category !== undefined && obj.category[0].indexOf(keyword) > -1) {
-                        results.push(obj);
+                        results.push(extract(obj));
                     }
                 }
                 deferred.resolve(results);
