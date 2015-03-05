@@ -2,20 +2,20 @@
 ikea catalogue app fueled with data collected by import.io. My preferred AngularJS app setup.
 
 ## Original Plan
-  1)  Scrap **all** products from IKEA using a crawler powered by import.io.
-  2)  Accessing the scrapped data through import.io REST API.
-  3)  Provide a web app to search and browse IKEA products.
+  1.  Scrap **all** products from IKEA using a crawler powered by import.io.
+  2.  Accessing the scrapped data through import.io REST API.
+  3.  Provide a web app to search and browse IKEA products.
 
 ### Issues
-  1)  When crawling the data, title and description were omitted by the crawler. When training the pages it worked fine.
-  2)  After collecting the data, I needed to define "inputs" to make the API searchable. No documentation, perhaps does not work for crawled data sets?
-  3)  Query object badly documented - for a long time I mistakenly assumed that the column names correspond to the key.
-  4)  There is a jQuery dependency for JS library.
+  1.  When crawling the data, title and description were omitted by the crawler. When training the pages it worked fine.
+  2.  After collecting the data, I needed to define "inputs" to make the API searchable. No documentation, perhaps does not work for crawled data sets?
+  3.  Query object badly documented - for a long time I mistakenly assumed that the column names correspond to the key.
+  4.  There is a jQuery dependency for JS library.
 
 ### Changed plan
-  1)  Scrap **all** products from IKEA, steal the title from the alt description.
-  2)  Download data as JSON - ship them with web app.
-  3)  Provide a web app to search and browse IKEA products.
+  1.  Scrap **all** products from IKEA, steal the title from the alt description.
+  2.  Download data as JSON - ship them with web app.
+  3).  Provide a web app to search and browse IKEA products.
 
 
 ## Build
