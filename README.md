@@ -13,7 +13,7 @@ experimenting with import.io, material design, and gulp
   4) There is a jQuery dependency for JS library.
 
 ### Changed plan
-  1) Scrap **all** products from IKEA.
+  1) Scrap **all** products from IKEA, steal the title from the alt description.
   2) Download data as JSON - ship them with web app.
   3) Provide a web app to search and browse IKEA products.
 
