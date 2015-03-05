@@ -48,6 +48,7 @@
                     newItem.desc = item.long_desc[0];
                     newItem.product_id = item.product_id[0];
                     newItem.title = item['img/_title'][0].split(" ")[0];
+                    newItem.url = item._pageUrl;
                     switch (newItem.category) {
                     case 'Living Room':
                         newItem.color = 'label-primary';

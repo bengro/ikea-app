@@ -76,7 +76,7 @@ gulp watch
   * app directory: source code.
   * dist directory: minified HTML, CSS, JS ready for production.
   * Tests run again final concatenated JS script.
-  * BEM for CSS
+  * BEM for CSS (first time, needs some revising)
   * JSLint
   
 **Dependencies**:
