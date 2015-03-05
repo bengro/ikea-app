@@ -21,11 +21,11 @@ ikea catalogue app fueled with data collected by import.io. My preferred Angular
 ## Build
 
 ### Get it building and running
-```npm install```
-```gulp deploy```
-```gulp webserver```
+    npm install
+    gulp deploy
+    gulp webserver
 
-Then hit for example:
+Then hit, git for example:
   * http://localhost:8000/index.html#/?q=bathroom
   * http://localhost:8000/index.html#/?q=stuva
   * http://localhost:8000/index.html#/?q=398.736.85
