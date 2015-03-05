@@ -70,6 +70,10 @@ body {
       top: 0px;
       .content .content__search {
         padding: 0px;
+        span {
+          color: @bright;
+          margin-left: 5px;
+        }
       }
       .footer {
         .transition;
@@ -138,8 +142,28 @@ body {
             float: left;
             margin: 15px;
             padding: 10px;
+            &:hover {
+              border-bottom: 3px solid @blue;
+            }
             .results--row {
               margin: 5px 0;
+              .info-price {
+                font-size: 150%;
+                text-align: center;
+                width: 90px;
+              }
+              &.info-id p {
+                font-size: 80%;
+                margin-top: 0px;
+              }
+              &.info-title p {
+                font-weight: bold;
+                font-style: italic;
+                margin-bottom: 0px;
+              }
+              .info-img {
+                width: 100px;
+              }
             }
             .row-1 {
               p, img {

@@ -21,16 +21,16 @@
     <!-- I would rather use ul>li for more semantic meaning and better screen-reader support -->
     <section class="results">
         <div class="panel panel-default results-panel">
-            <p ng-show="results.length === 0">No results found for <strong>{{searchInput}}</strong>.</p>
-            <ul class="results__list" ng-if="results.length > 0">
+            <p data-ng-show="results.length === 0">No results found for <strong>{{searchInput}}</strong>.</p>
+            <ul class="results__list" data-ng-if="results && results.length > 0">
                 <li class="tile" data-ng-repeat="product in results">
                     <div class="results--row row-1">
-                        <img src="{{product.img}}" width="100" alt="$..."/>
-                        <p>{{product.price}}</p>
+                        <img src="{{ product.img }}" class="info-img" alt="$..."/>
+                        <p class="info-price">{{product.price}}</p>
                     </div>
-                    <div class="results--row"><p>{{ product.title }}</p></div>
-                    <div class="results--row"><p>{{ product.product_id }}</p></div>
-                    <div class="results--row"><p><span class="label label-default">{{ product.category }}</span></p></div>
+                    <div class="results--row info-title"><p>{{ product.title }}</p></div>
+                    <div class="results--row info-id"><p>{{ product.product_id }}</p></div>
+                    <div class="results--row info-category"><p><span class="label {{ product.color }}">{{ product.category }}</span></p></div>
                 </li>
             </ul>
         </div>
