@@ -46,10 +46,17 @@ gulp.task('webserver', function () {
 
 /* TEST */
 gulp.task('test', function () {
-    gulp.src('app/**/*.test.js')
+    return gulp.src('app/**/*.test.js')
         .pipe(karma({
             configFile: 'karma.conf.js',
             action: 'watch'
+        }));
+});
+gulp.task('test-once', function () {
+    return gulp.src('app/**/*.test.js')
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
         }));
 });
 

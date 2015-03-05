@@ -38,3 +38,7 @@ Improvements:
   * Run test on dist
   * Add end-to-end tests
   
+Code quality:
+  * BEM
+  * JSLint
+  
