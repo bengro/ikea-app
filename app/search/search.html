@@ -1,34 +1,37 @@
-<div class="content__search" data-ng-controller="SearchCtrl">
-    <form class="navbar-form" role="search">
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search IKEA products" data-ng-keyup="validate()" data-ng-model="searchInput">
-            <button type="submit" class="btn btn-default form-control" data-ng-click="search()" data-ng-disabled="!searchInput">
-                <i class="glyphicon glyphicon-search"></i>
-                Search
-            </button>
-            <button class="btn btn-default form-control" data-ng-click="close()" ng-show="searchInput">
-                Clear
-                <i class="glyphicon glyphicon-remove-circle btn-icon"></i>
-            </button>
-        </div>
-    </form>
-</div>
-
-<div class="loader"></div>
-
-<!-- I would rather use ul>li for more semantic meaning and better screen-reader support -->
-<section class="results">
-    <div class="panel panel-default results-panel">
-        <ul class="results__list">
-            <li class="tile" data-ng-repeat="obj in [1,2,3,4,5,6,7]">
-                <div class="results--row row-1">
-                    <img src="artifacts/example.JPG" width="100" alt="$..."/>
-                    <p>Price $</p>
-                </div>
-                <div class="results--row"><p>Title</p></div>
-                <div class="results--row"><p>Desc</p></div>
-                <div class="results--row"><p><span class="label label-default">category..</span></p></div>
-            </li>
-        </ul>
+<div data-ng-controller="SearchCtrl">
+    <div class="content__search" >
+        <form class="navbar-form" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search IKEA products" data-ng-keyup="validate()" data-ng-model="searchInput">
+                <button type="submit" class="btn btn-default form-control" data-ng-click="search()" data-ng-disabled="!searchInput">
+                    <i class="glyphicon glyphicon-search"></i>
+                    Search
+                </button>
+                <button class="btn btn-default form-control" data-ng-click="close()" ng-show="searchInput">
+                    Clear
+                    <i class="glyphicon glyphicon-remove-circle btn-icon"></i>
+                </button>
+            </div>
+        </form>
     </div>
-</section>
+
+    <div class="loader"></div>
+
+    <!-- I would rather use ul>li for more semantic meaning and better screen-reader support -->
+    <section class="results">
+        <div class="panel panel-default results-panel">
+            <p ng-show="results.length === 0">No results found for <strong>{{searchInput}}</strong>.</p>
+            <ul class="results__list" ng-if="results.length > 0">
+                <li class="tile" data-ng-repeat="product in results">
+                    <div class="results--row row-1">
+                        <img src="{{product.img}}" width="100" alt="$..."/>
+                        <p>{{product.price}}</p>
+                    </div>
+                    <div class="results--row"><p>Title</p></div>
+                    <div class="results--row"><p>Desc</p></div>
+                    <div class="results--row"><p><span class="label label-default">category..</span></p></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

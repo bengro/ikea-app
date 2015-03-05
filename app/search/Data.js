@@ -31,9 +31,9 @@
         /**
          * Filters the ikea products by some filter criteria.
          * @param ikea products json
-         * @param filter criteria {column: value}
+         * @param filter criteria as a string
          */
-        data.search = function (filter) {
+        data.search = function (keyword) {
             var deferred = $q.defer();
 
             if (!products) {
@@ -41,14 +41,19 @@
             }
 
             products.then(function (allProducts) {
+                if (allProducts.data === undefined || allProducts.data.length === 0) {
+                    return deferred.reject();
+                }
                 // iterate over data and apply filter
                 var i, obj, results = [];
-                for (i = 0; i < allProducts.length; i += 1) {
-                    obj = data[i];
-                    if (obj[filter.col] !== undefined) {
-                        if (obj[filter.col].indexOf(filter.value) > -1) {
-                            results.push(obj);
-                        }
+                for (i = 0; i < allProducts.data.length; i += 1) {
+                    obj = allProducts.data[i];
+                    if (obj.product_id[0].indexOf(keyword) > -1) {
+                        results.push(obj);
+                    } else if (obj['img/_title'][0].indexOf(keyword) > -1) {
+                        results.push(obj);
+                    } else if (obj.category !== undefined && obj.category[0].indexOf(keyword) > -1) {
+                        results.push(obj);
                     }
                 }
                 deferred.resolve(results);

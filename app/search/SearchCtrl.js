@@ -3,23 +3,24 @@
     var app = angular.module('ikeaApp');
     app.controller('SearchCtrl', ['$scope', 'Data', '$location', function ($scope, Data, $location) {
 
-        $scope.results = null;
-
         /**
-         * Init method for this controller, here values are initialised.
+         * Init method for this controller, here all local scope variables are initialised.
          */
         function init() {
             var searchParam = $location.search();
             $scope.searchInput = (searchParam.q !== undefined) ? searchParam.q : null;
+            $scope.results = [];
         }
         init();
 
         /**
-         * Triggering a search request, private method.
+         * Triggering a search request; notice it's private method.
          */
         function ajaxCall() {
             var result = Data.search($scope.searchInput);
             result.then(function (data) {
+                console.log('results set to' + data);
+                console.log(data);
                 $scope.results = data;
             });
         }
@@ -45,6 +46,7 @@
          * Invoked when hitting the clear button
          */
         $scope.close = function () {
+            $scope.results = [];
             $scope.searchInput = null;
             $location.path('/').search({}).replace();
             init();
