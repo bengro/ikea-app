@@ -52,4 +52,8 @@ describe('Testing SearchCtrl', function () {
         expect($scope.results).not.toBeNull();
     });
 
+    it('should return a matching subset of all products when searching', function() {
+        controller();
+        
+    });
 });

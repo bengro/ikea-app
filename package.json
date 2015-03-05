@@ -1,8 +1,8 @@
 {
   "name": "ikea-app",
   "version": "0.0.0",
-  "description": "using import.io on the back-end, ikea product catalogue app.",
-  "main": "index.js",
+  "description": "ikea product catalogue app with data collected by import.io",
+  "main": "main.js",
   "devDependencies": {
     "bower": "~1.3.5",
     "gulp": "^3.8.9",

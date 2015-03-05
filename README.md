@@ -1,5 +1,5 @@
 # ikea-app
-experimenting with import.io, material design, and gulp
+ikea catalogue app fueled with data collected by import.io. My preferred AngularJS app setup.
 
 ## Original Plan
   1) Scrap **all** products from IKEA using a crawler powered by import.io.
@@ -17,16 +17,23 @@ experimenting with import.io, material design, and gulp
   2) Download data as JSON - ship them with web app.
   3) Provide a web app to search and browse IKEA products.
 
+
 ## Build
 
 **Install**:
 npm install
 
+**Compile scripts**
+gulp scripts
+
+**Compile styles**
+gulp style
+
 **Build app**:
-gulp deploy
+gulp less
 
 **Unit Tests**:
-gulp test
+gulp test / gulp test-once
 
 **Run**:
 gulp webserver
@@ -37,23 +44,28 @@ gulp watch
 
 ## Details
 
-Dependencies:
-  * Front-end: AngularJS 1.3, ngRoute, Import.io, jQuery
-  * Testing: Karma, Jasmine
-  * Build tools: gulp, gulp plugins,
-
-Features implemented:
+**Features implemented**:
   * Hot linking
-  * Basic responsive behaviour
+  * Data abstraction layer
+  * Basic responsiveneess
   * noscript warning
 
-Improvements:
+**Next tasks**:
   * Proper route management (back, forward button, change title on state change)
-  * Auto-complete
-  * Run test on dist
+  * Auto-complete for search input
   * Add end-to-end tests
+  * Virtualis results to render thousands of them fluidly
+  * e2e tests with protactor
   
-Code quality:
-  * BEM
+**General code quality**:
+  * component-based application structure
+  * app directory: source code.
+  * dist directory: minified HTML, CSS, JS ready for production.
+  * Tests run again final concatenated JS script.
+  * BEM for CSS
   * JSLint
   
+**Dependencies**:
+  * Front-end: AngularJS 1.3, ngRoute, LESS, bootstrap
+  * Testing: Karma, Jasmine, angular-mocks
+  * Build tools: gulp, gulp plugins
