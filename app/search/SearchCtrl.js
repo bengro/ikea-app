@@ -29,7 +29,7 @@
          */
         $scope.validate = function () {
             if ($scope.searchInput === '') {
-                $location.path('/').search({}).replace();
+                $scope.close();
             }
         };
 
